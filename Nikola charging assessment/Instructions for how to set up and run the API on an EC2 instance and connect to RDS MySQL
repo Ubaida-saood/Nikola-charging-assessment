@@ -1,4 +1,4 @@
-# here are the steps you can follow to set up and run the API on an EC2 instance and connect to RDS MySQL:
+#here are the steps you can follow to set up and run the API on an EC2 instance and connect to RDS MySQL:
 
 
 1) Launch an EC2 instance
