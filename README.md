@@ -1,6 +1,6 @@
 # Nikola-charging-assessment
 
-# Create the weather data table in RDS MySQL
+# Creating the weather data table in RDS MySQL
 To create the weather data table in MySQL, you can use the following SQL code:
 
 CREATE TABLE weather_data (
