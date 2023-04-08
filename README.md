@@ -80,3 +80,5 @@ def delete_weather_data(city_name):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+This code defines four routes: one to search for weather data by city name, one to add new weather data to the database, one to update weather data in the database, and one to delete weather data
