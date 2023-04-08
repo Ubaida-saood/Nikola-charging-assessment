@@ -13,7 +13,7 @@ CREATE TABLE weather_data (
 
 This creates a table with five columns: city_name (which is the primary key), temperature, humidity, pressure, and wind_speed.
 
-Flask routes and functions
+# Flask routes and functions
 Here are some sample Flask routes and functions that you can use to handle weather data queries and modifications:
 
 from flask import Flask, request, jsonify
