@@ -1,7 +1,7 @@
 # here are the steps you can follow to set up and run the API on an EC2 instance and connect to RDS MySQL:
 
 
-# Launch an EC2 instance
+1) Launch an EC2 instance
 
 Log in to the AWS Management Console and go to the EC2 dashboard
 Click the "Launch Instance" button and follow the prompts to create a new instance
@@ -10,7 +10,7 @@ Choose an instance type that meets your requirements
 Configure your instance details, such as the VPC, subnet, security group, and key pair
 Review and launch your instance
 
-# Set up the Flask application on the EC2 instance
+2) Set up the Flask application on the EC2 instance
 
 Connect to your EC2 instance using SSH and install the required software packages, such as Python, Flask, and mysql-connector-python:
 
@@ -18,34 +18,36 @@ sudo yum update -y
 sudo yum install -y python3
 sudo pip3 install flask mysql-connector-python
 
-#Copy your Flask application code to the EC2 instance, for example using SCP:
+3) Copy your Flask application code to the EC2 instance, for example using SCP:
 
 scp -i your-key-pair.pem your-code.py ec2-user@your-ec2-instance:/home/ec2-user/
-# Run your Flask application:
 
-python3 your-code.py
-# Connect to RDS MySQL from the Flask application
+4) Run your Flask application:
+
+python3 your-code
+
+5) Connect to RDS MySQL from the Flask application
 
 Get the endpoint, username, and password for your RDS MySQL instance from the AWS Management Console
 Modify your Flask application code to use these credentials to connect to the database, for example:
-makefile
-Copy code
+
 db = mysql.connector.connect(
     host="your-rds-mysql-endpoint",
     user="your-rds-mysql-username",
     password="your-rds-mysql-password",
     database="your-rds-mysql-database"
 )
-# Test the API
+
+6) Test the API
 
 Use a web browser or a tool such as curl or Postman to test the API endpoints, for example:
-bash
-Copy code
+
 GET http://your-ec2-instance:5000/weather_data/New%20York
 POST http://your-ec2-instance:5000/weather_data { "city_name": "San Francisco", "temperature": 65.0, "humidity": 60.0, "pressure": 1013.0, "wind_speed": 10.0 }
 PUT http://your-ec2-instance:5000/weather_data/San%20Francisco { "temperature": 70.0, "humidity": 55.0, "pressure": 1015.0, "wind_speed": 12.0 }
 DELETE http://your-ec2-instance:5000/weather_data/San%20Francisco
-# Use AWS Lambda functions to automatically update weather data in the database at set intervals
+
+7) Use AWS Lambda functions to automatically update weather data in the database at set intervals
 
 Create a new Lambda function using the AWS Management Console or the AWS CLI
 Write the code for your Lambda function to retrieve weather data from a weather API and update the MySQL database using the mysql-connector-python library
